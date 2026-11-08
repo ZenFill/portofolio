@@ -1,0 +1,112 @@
+---
+import { GALLERY_COLUMNS } from '@/data/galleryItems';
+
+const comingChars = 'COMING'.split('');
+const soonChars = 'SOON'.split('');
+---
+
+<section class="coming-soon" data-hero-section>
+  <!-- Background Animated Gallery Grid (Powered by Motion.dev) -->
+  <div class="gallery-bg" data-gallery-grid aria-hidden="true">
+    <div class="gallery-bg__columns" data-gallery-parallax>
+      {
+        GALLERY_COLUMNS.map((column, colIdx) => {
+          const loopItems = [...column, ...column];
+          const direction = colIdx % 2 === 0 ? 'up' : 'down';
+
+          return (
+            <div class="gallery-bg__col" data-gallery-col={colIdx}>
+              <div
+                class="gallery-bg__track"
+                data-gallery-track
+                data-direction={direction}
+              >
+                {loopItems.map((card) => (
+                  <article
+                    class={`gallery-card gallery-card--${card.aspect} gallery-card--${card.tone}`}
+                    data-gallery-card
+                  >
+                    <div class="gallery-card__art">
+                      {card.pattern === 'layout' && (
+                        <svg viewBox="0 0 160 120" class="gallery-card__svg">
+                          <rect x="14" y="14" width="132" height="22" rx="5" fill="currentColor" opacity="0.18" />
+                          <rect x="14" y="44" width="60" height="62" rx="6" fill="currentColor" opacity="0.26" />
+                          <rect x="82" y="44" width="64" height="28" rx="5" fill="currentColor" opacity="0.15" />
+                          <rect x="82" y="78" width="64" height="28" rx="5" fill="currentColor" opacity="0.22" />
+                        </svg>
+                      )}
+                      {card.pattern === 'circles' && (
+                        <svg viewBox="0 0 160 120" class="gallery-card__svg">
+                          <circle cx="80" cy="60" r="42" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.28" />
+                          <circle cx="80" cy="60" r="26" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.38" />
+                          <circle cx="80" cy="60" r="10" fill="currentColor" opacity="0.32" />
+                        </svg>
+                      )}
+                      {card.pattern === 'waves' && (
+                        <svg viewBox="0 0 160 120" class="gallery-card__svg">
+                          <path d="M 10 42 Q 45 18, 80 42 T 150 42" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3" />
+                          <path d="M 10 62 Q 45 38, 80 62 T 150 62" fill="none" stroke="currentColor" stroke-width="2" opacity="0.4" />
+                          <path d="M 10 82 Q 45 58, 80 82 T 150 82" fill="none" stroke="currentColor" stroke-width="2" opacity="0.22" />
+                        </svg>
+                      )}
+                      {card.pattern === 'grid' && (
+                        <svg viewBox="0 0 160 120" class="gallery-card__svg">
+                          <line x1="20" y1="30" x2="140" y2="30" stroke="currentColor" stroke-width="1.2" opacity="0.22" />
+                          <line x1="20" y1="60" x2="140" y2="60" stroke="currentColor" stroke-width="1.2" opacity="0.28" />
+                          <line x1="20" y1="90" x2="140" y2="90" stroke="currentColor" stroke-width="1.2" opacity="0.22" />
+                          <line x1="50" y1="15" x2="50" y2="105" stroke="currentColor" stroke-width="1.2" opacity="0.22" />
+                          <line x1="80" y1="15" x2="80" y2="105" stroke="currentColor" stroke-width="1.2" opacity="0.28" />
+                          <line x1="110" y1="15" x2="110" y2="105" stroke="currentColor" stroke-width="1.2" opacity="0.22" />
+                          <circle cx="80" cy="60" r="6" fill="currentColor" opacity="0.42" />
+                        </svg>
+                      )}
+                    </div>
+
+                    <div class="gallery-card__meta">
+                      <span class="gallery-card__code">{card.code}</span>
+                      <span class="gallery-card__title">{card.title}</span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- Soft Radial Veil for Eye-Friendly Center Contrast -->
+    <div class="gallery-bg__veil"></div>
+  </div>
+
+  <!-- Foreground Centerpiece: Smooth Zero-Blink COMING SOON -->
+  <div class="coming-soon__container">
+    <h1 class="coming-soon__title" data-roll-title aria-label="COMING SOON">
+      <span class="coming-soon__word" aria-hidden="true">
+        {
+          comingChars.map((char) => (
+            <span class="roll-char">
+              <span class="roll-char__track" data-roll-track>
+                <span class="roll-char__glyph">{char}</span>
+                <span class="roll-char__glyph roll-char__glyph--clone">{char}</span>
+              </span>
+            </span>
+          ))
+        }
+      </span>
+
+      <span class="coming-soon__word coming-soon__word--accent" aria-hidden="true">
+        {
+          soonChars.map((char) => (
+            <span class="roll-char">
+              <span class="roll-char__track" data-roll-track>
+                <span class="roll-char__glyph">{char}</span>
+                <span class="roll-char__glyph roll-char__glyph--clone">{char}</span>
+              </span>
+            </span>
+          ))
+        }
+      </span>
+    </h1>
+  </div>
+</section>

@@ -1,0 +1,466 @@
+:root {
+  /* ==========================================================================
+     Friendly, Eye-Comfortable Modern Blue Palette (Anti-AI Slop)
+     ========================================================================== */
+  /* Preloader Curtain Colors (Calm Deep Slate-Blue) */
+  --curtain-bg-top: #0d1f38;
+  --curtain-bg-bottom: #0b1a30;
+  --preloader-text: #eef4fc;
+  --preloader-accent: #7dd3fc;
+  --preloader-muted: rgba(203, 224, 248, 0.68);
+  --preloader-line: rgba(125, 211, 252, 0.55);
+
+  /* Main Coming Soon Page Colors (Soft, Eye-Friendly Daylight Blue) */
+  --page-bg: #f1f6fd;
+  --page-text: #152946;
+  --page-accent: #2563eb;
+
+  /* Friendly Geometric Typography */
+  --font-friendly: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: var(--page-bg);
+  color: var(--page-text);
+  font-family: var(--font-friendly);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   1. PRELOADER (Minimalist, Clean, Eye-Friendly)
+   ========================================================================== */
+.preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 100;
+  overflow: hidden;
+  user-select: none;
+  color: var(--preloader-text);
+}
+
+/* Top & Bottom Curtains */
+.preloader__curtain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50.2dvh;
+  will-change: transform;
+  z-index: 1;
+}
+
+.preloader__curtain--top {
+  top: 0;
+  background-color: var(--curtain-bg-top);
+}
+
+.preloader__curtain--bottom {
+  bottom: 0;
+  background-color: var(--curtain-bg-bottom);
+}
+
+/* Stage Layout */
+.preloader__stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-items: center;
+  justify-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  will-change: opacity;
+}
+
+/* Floating & Softly Blinking Dev Stack Logos */
+.preloader__logo-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dev-logo {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(147, 197, 253, 0.12);
+  color: rgba(226, 238, 255, 0.78);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transform: translate(-50%, -50%) scale(var(--logo-scale, 1));
+  will-change: transform, opacity;
+}
+
+.dev-logo__svg {
+  width: 16px;
+  height: 16px;
+  color: var(--preloader-accent);
+  flex-shrink: 0;
+}
+
+.dev-logo__name {
+  white-space: nowrap;
+}
+
+/* Center Lockup: WELCOME TO ——— [Long Line] ——— MY WEBSITE */
+.preloader__center {
+  grid-row: 2;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.preloader__lockup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  max-width: 92vw;
+}
+
+.preloader__text {
+  font-size: clamp(0.88rem, 1.35vw, 1.12rem);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--preloader-text);
+  white-space: nowrap;
+}
+
+.preloader__text--accent {
+  color: var(--preloader-accent);
+}
+
+/* Smooth Expanding & Contracting Connector Line */
+.preloader__connector {
+  display: inline-flex;
+  align-items: center;
+  width: 0px;
+  height: 12px;
+  overflow: hidden;
+  will-change: width, opacity;
+}
+
+.preloader__connector-line {
+  width: 100%;
+  height: 1.5px;
+  border-radius: 999px;
+  background-color: var(--preloader-line);
+}
+
+/* Bottom-Center Percentage Indicator */
+.preloader__footer {
+  grid-row: 3;
+  align-self: end;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: clamp(0.5rem, 1.5vh, 1.25rem);
+}
+
+.preloader__counter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--preloader-muted);
+}
+
+.preloader__counter-number {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--preloader-text);
+}
+
+.preloader__counter-percent {
+  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  font-weight: 500;
+  color: var(--preloader-accent);
+}
+
+/* ==========================================================================
+   2. MAIN PAGE: ANIMATED GALLERY GRID BACKGROUND + ZERO-BLINK "COMING SOON"
+   ========================================================================== */
+.coming-soon {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background-color: var(--page-bg);
+  overflow: hidden;
+}
+
+/* Motion.dev Animated Gallery Grid Background */
+.gallery-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gallery-bg__columns {
+  position: absolute;
+  inset: -12% -4%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.85rem, 1.8vw, 1.5rem);
+  padding-inline: clamp(0.85rem, 2.5vw, 2.25rem);
+  will-change: transform;
+}
+
+.gallery-bg__col {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-bg__track {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.85rem, 1.8vw, 1.5rem);
+  padding-bottom: clamp(0.85rem, 1.8vw, 1.5rem);
+  will-change: transform;
+}
+
+/* Gallery Card Styling (Modern Blue Tones) */
+.gallery-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(0.9rem, 1.5vw, 1.35rem);
+  border-radius: 1.1rem;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.gallery-card--tall {
+  height: clamp(190px, 28vh, 270px);
+}
+
+.gallery-card--square {
+  height: clamp(150px, 21vh, 205px);
+}
+
+.gallery-card--ice {
+  background-color: rgba(224, 238, 254, 0.65);
+  color: #1e40af;
+}
+
+.gallery-card--sky {
+  background-color: rgba(214, 232, 253, 0.62);
+  color: #1d4ed8;
+}
+
+.gallery-card--cobalt {
+  background-color: rgba(199, 223, 252, 0.58);
+  color: #1e3a8a;
+}
+
+.gallery-card--slate {
+  background-color: rgba(226, 236, 249, 0.68);
+  color: #334e7b;
+}
+
+.gallery-card__art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.gallery-card__svg {
+  width: 100%;
+  height: 100%;
+  max-height: 115px;
+}
+
+.gallery-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(37, 99, 235, 0.1);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.gallery-card__code {
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+}
+
+.gallery-card__title {
+  opacity: 0.82;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Soft Center Radial Veil so "COMING SOON" stays super clean & readable */
+.gallery-bg__veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(241, 246, 253, 0.94) 0%,
+    rgba(241, 246, 253, 0.78) 34%,
+    rgba(241, 246, 253, 0.38) 72%,
+    rgba(241, 246, 253, 0.18) 100%
+  );
+  z-index: 2;
+}
+
+/* Foreground Centerpiece: Zero-Blink COMING SOON */
+.coming-soon__container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.35rem 2.4rem;
+  border-radius: 999px;
+  background-color: rgba(241, 246, 253, 0.78);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 12px 36px rgba(21, 41, 70, 0.06);
+}
+
+.coming-soon__title {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: clamp(0.5rem, 1.2vw, 0.85rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.95rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  color: var(--page-text);
+  cursor: default;
+  user-select: none;
+}
+
+.coming-soon__word {
+  display: inline-flex;
+  align-items: center;
+}
+
+.coming-soon__word--accent {
+  color: var(--page-accent);
+}
+
+/* Zero-Blink Dual-Layer Character Roll Slot */
+.roll-char {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.2em;
+  line-height: 1.2;
+}
+
+.roll-char__track {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.roll-char__glyph {
+  display: block;
+  height: 1.2em;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.roll-char__glyph--clone {
+  color: inherit;
+}
+
+/* Responsive Breakpoints for Gallery Grid & Typography */
+@media (max-width: 1024px) {
+  .gallery-bg__columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .gallery-bg__col:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .dev-logo:nth-child(even) {
+    display: none;
+  }
+
+  .preloader__lockup {
+    gap: 0.45rem;
+  }
+
+  .gallery-bg__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    padding-inline: 0.7rem;
+  }
+
+  .gallery-bg__col:nth-child(3),
+  .gallery-bg__col:nth-child(4) {
+    display: none;
+  }
+
+  .gallery-card--tall {
+    height: 165px;
+  }
+
+  .gallery-card--square {
+    height: 135px;
+  }
+
+  .coming-soon__container {
+    padding: 1rem 1.65rem;
+  }
+}

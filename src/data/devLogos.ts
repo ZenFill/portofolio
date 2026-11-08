@@ -1,0 +1,178 @@
+export interface DevLogoItem {
+  id: string;
+  name: string;
+  category: string;
+  /** Initial X position in viewport percentage (5 - 92) */
+  x: number;
+  /** Initial Y position in viewport percentage (8 - 88) */
+  y: number;
+  /** Relative size scale (0.85 - 1.15) */
+  scale: number;
+  /** Brand accent color (harmonized with modern blue theme) */
+  accent: string;
+  /** Clean inline SVG path/markup (24x24 viewBox) */
+  svg: string;
+}
+
+export const DEV_LOGOS: DevLogoItem[] = [
+  {
+    id: 'astro',
+    name: 'Astro',
+    category: 'Framework',
+    x: 12,
+    y: 16,
+    scale: 1.05,
+    accent: '#60A5FA',
+    svg: `<path fill="currentColor" d="M14.7 3.2c.3.4.5.9.7 1.7l3.8 12.5a9.8 9.8 0 0 0-4.7-1.6l-2.6-8.8a.3.3 0 0 0-.6 0l-2.5 8.8a9.8 9.8 0 0 0-4.8 1.6L7.9 4.9c.2-.8.4-1.3.7-1.7.3-.4.8-.5 1.7-.5h2.7c.9 0 1.4.1 1.7.5Zm-3.1 15.1c1.3 0 2.5-.6 3.1-1.5.2.6.2 1.3.1 1.9-.2 1.3-1 2.2-2.1 2.8-.6.3-.8.7-.7 1.3 0 .2 0 .4-.1.6-.6-.4-1.1-.9-1.4-1.6-.3-.6-.3-1.3-.1-2 .3-.8.6-1.5 1.2-1.5Z"/>`,
+  },
+  {
+    id: 'nextjs',
+    name: 'Next.js',
+    category: 'React Framework',
+    x: 82,
+    y: 14,
+    scale: 1.0,
+    accent: '#93C5FD',
+    svg: `<path fill="currentColor" d="M12 2a10 10 0 1 0 6.18 17.86L9.6 8.8v6.7H8.1V6.5h1.65l9.34 12.1A10 10 0 0 0 12 2Zm3.9 10.7h-1.5V6.5h1.5v6.2Z"/>`,
+  },
+  {
+    id: 'web3',
+    name: 'Web3',
+    category: 'Decentralized',
+    x: 24,
+    y: 78,
+    scale: 1.1,
+    accent: '#38BDF8',
+    svg: `<path fill="currentColor" d="M12 2 5.5 12.2 12 16l6.5-3.8L12 2Zm0 15.5-6.5-3.8L12 22l6.5-8.3-6.5 3.8Z"/>`,
+  },
+  {
+    id: 'javascript',
+    name: 'JavaScript',
+    category: 'Language',
+    x: 76,
+    y: 76,
+    scale: 1.05,
+    accent: '#FACC15',
+    svg: `<path fill="currentColor" d="M3 3h18v18H3V3Zm9.7 13.7c0 1.5-.9 2.2-2.2 2.2-1.2 0-1.9-.6-2.3-1.4l1.3-.8c.2.5.5.8 1 .8.5 0 .8-.2.8-1v-5.4h1.4v5.6Zm4.9 2.2c-1.5 0-2.5-.7-3-1.7l1.3-.8c.4.6.9 1.1 1.7 1.1.7 0 1.2-.4 1.2-.9 0-.6-.5-.8-1.3-1.2l-.5-.2c-1.3-.6-2.2-1.2-2.2-2.7 0-1.3 1-2.4 2.6-2.4 1.1 0 2 .4 2.5 1.4l-1.3.8c-.3-.5-.6-.8-1.2-.8-.6 0-.9.4-.9.8 0 .6.4.8 1.2 1.1l.5.2c1.5.6 2.4 1.3 2.4 2.8 0 1.6-1.3 2.5-3 2.5Z"/>`,
+  },
+  {
+    id: 'typescript',
+    name: 'TypeScript',
+    category: 'Language',
+    x: 88,
+    y: 44,
+    scale: 1.0,
+    accent: '#3B82F6',
+    svg: `<path fill="currentColor" d="M3 3h18v18H3V3Zm10.7 9.3h-2.4v6.6H9.7v-6.6H7.3V11h6.4v1.3Zm4.1 6.7c-1.5 0-2.5-.7-3-1.6l1.3-.8c.3.6.9 1 1.7 1 .7 0 1.2-.3 1.2-.8 0-.6-.4-.8-1.3-1.2l-.5-.2c-1.3-.5-2.1-1.2-2.1-2.6 0-1.3 1-2.3 2.6-2.3 1.1 0 1.9.4 2.5 1.3l-1.3.8c-.3-.5-.7-.7-1.2-.7-.6 0-1 .3-1 .8 0 .5.4.8 1.2 1.1l.5.2c1.5.6 2.3 1.3 2.3 2.7 0 1.6-1.2 2.3-2.9 2.3Z"/>`,
+  },
+  {
+    id: 'html5',
+    name: 'HTML5',
+    category: 'Markup',
+    x: 8,
+    y: 48,
+    scale: 0.95,
+    accent: '#FB923C',
+    svg: `<path fill="currentColor" d="m4.2 3 1.4 15.8L12 21l6.4-2.2L19.8 3H4.2Zm12.4 5.1H9.2l.2 2h7l-.6 6.2-3.8 1.1-3.8-1.1-.3-3h1.9l.1 1.5 2.1.6 2.1-.6.2-2.4H7.7L7.2 6.2h9.6l-.2 1.9Z"/>`,
+  },
+  {
+    id: 'css3',
+    name: 'CSS3',
+    category: 'Styling',
+    x: 18,
+    y: 32,
+    scale: 0.95,
+    accent: '#38BDF8',
+    svg: `<path fill="currentColor" d="m4.2 3 1.4 15.8L12 21l6.4-2.2L19.8 3H4.2Zm12.1 13.3-4.3 1.2-4.3-1.2-.3-3.1h2l.1 1.5 2.5.7 2.5-.7.3-2.6H9.2l-.2-1.9h6.1l.2-2H7.2L7 6.2h10l-.7 10.1Z"/>`,
+  },
+  {
+    id: 'git',
+    name: 'Git',
+    category: 'Version Control',
+    x: 68,
+    y: 24,
+    scale: 0.95,
+    accent: '#F87171',
+    svg: `<path fill="currentColor" d="m21.4 11.1-8.5-8.5a1.3 1.3 0 0 0-1.8 0L9.3 4.4l2.3 2.3a1.5 1.5 0 0 1 1.9 1.9l2.2 2.2a1.5 1.5 0 1 1-.9.9L12.6 9.5v5.8a1.5 1.5 0 1 1-1.3 0V9.4a1.5 1.5 0 0 1-.8-2L8.2 5.1 2.6 10.7a1.3 1.3 0 0 0 0 1.8l8.5 8.5a1.3 1.3 0 0 0 1.8 0l8.5-8.5a1.3 1.3 0 0 0 0-1.4Z"/>`,
+  },
+  {
+    id: 'github',
+    name: 'GitHub',
+    category: 'Platform',
+    x: 34,
+    y: 12,
+    scale: 1.0,
+    accent: '#E2E8F0',
+    svg: `<path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/>`,
+  },
+  {
+    id: 'php',
+    name: 'PHP',
+    category: 'Backend',
+    x: 11,
+    y: 82,
+    scale: 0.95,
+    accent: '#818CF8',
+    svg: `<path fill="currentColor" d="M12 5C6.5 5 2 8.1 2 12s4.5 7 10 7 10-3.1 10-7-4.5-7-10-7Zm-4.3 8.3H6.2l-.3 1.7H4.5l1.1-5.8h2.4c1.1 0 1.8.6 1.6 1.8-.2 1.4-1.1 2.3-2.3 2.3Zm5.1 1.7h-1.4l.5-2.6H10l-.5 2.6H8.1l1.1-5.8h1.4l-.4 2h1.9l.4-2h1.4l-1.1 5.8Zm5-1.7h-1.5l-.3 1.7h-1.4l1.1-5.8H18c1.1 0 1.8.6 1.6 1.8-.2 1.4-1 2.3-1.8 2.3Z"/>`,
+  },
+  {
+    id: 'laravel',
+    name: 'Laravel',
+    category: 'Framework',
+    x: 62,
+    y: 84,
+    scale: 1.05,
+    accent: '#F87171',
+    svg: `<path fill="currentColor" d="m21.5 8.2-3.8-2.2a.8.8 0 0 0-.8 0l-3.8 2.2a.8.8 0 0 0-.4.7v4.3l-2.8 1.6V6.2a.8.8 0 0 0-.4-.7L5.7 3.3a.8.8 0 0 0-.8 0L1.1 5.5a.8.8 0 0 0-.4.7v9.2c0 .3.1.5.4.7l8.2 4.7a.8.8 0 0 0 .8 0l8.2-4.7c.2-.1.4-.4.4-.7v-3.6l2.8-1.6a.8.8 0 0 0 .4-.7V8.9c0-.3-.2-.5-.4-.7Z"/>`,
+  },
+  {
+    id: 'react',
+    name: 'React',
+    category: 'Library',
+    x: 48,
+    y: 16,
+    scale: 0.9,
+    accent: '#38BDF8',
+    svg: `<circle cx="12" cy="12" r="2.1" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3.8" fill="none" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="3.8" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(120 12 12)"/>`,
+  },
+  {
+    id: 'tailwind',
+    name: 'Tailwind',
+    category: 'CSS Engine',
+    x: 86,
+    y: 64,
+    scale: 0.95,
+    accent: '#38BDF8',
+    svg: `<path fill="currentColor" d="M12 6c-2.7 0-4.3 1.3-5 4 1-1.3 2.2-1.8 3.5-1.5.8.2 1.3.7 1.9 1.3 1 1 2.1 2.2 4.6 2.2 2.7 0 4.3-1.3 5-4-1 1.3-2.2 1.8-3.5 1.5-.8-.2-1.3-.7-1.9-1.3C15.6 7.2 14.5 6 12 6Zm-5 6c-2.7 0-4.3 1.3-5 4 1-1.3 2.2-1.8 3.5-1.5.8.2 1.3.7 1.9 1.3 1 1 2.1 2.2 4.6 2.2 2.7 0 4.3-1.3 5-4-1 1.3-2.2 1.8-3.5 1.5-.8-.2-1.3-.7-1.9-1.3-1-1-2.1-2.2-4.6-2.2Z"/>`,
+  },
+  {
+    id: 'nodejs',
+    name: 'Node.js',
+    category: 'Runtime',
+    x: 42,
+    y: 82,
+    scale: 0.95,
+    accent: '#4ADE80',
+    svg: `<path fill="currentColor" d="m11.2 2.3-7.4 4.3a1.6 1.6 0 0 0-.8 1.4v8.5c0 .6.3 1.1.8 1.4l7.4 4.3a1.6 1.6 0 0 0 1.6 0l7.4-4.3c.5-.3.8-.8.8-1.4V8c0-.6-.3-1.1-.8-1.4l-7.4-4.3a1.6 1.6 0 0 0-1.6 0Zm3.1 13.5c-1.8 0-2.8-.8-3-2.1h1.5c.2.6.7.9 1.5.9.9 0 1.4-.4 1.4-1 0-.5-.4-.7-1.6-1-1.6-.4-2.6-.9-2.6-2.2 0-1.3 1.1-2.2 2.7-2.2 1.6 0 2.6.8 2.8 2.1h-1.5c-.1-.6-.6-.9-1.3-.9-.8 0-1.3.3-1.3.9 0 .5.4.7 1.6 1 1.6.4 2.6.9 2.6 2.2 0 1.4-1.1 2.3-2.8 2.3Z"/>`,
+  },
+  {
+    id: 'vite',
+    name: 'Vite',
+    category: 'Bundler',
+    x: 28,
+    y: 62,
+    scale: 0.9,
+    accent: '#60A5FA',
+    svg: `<path fill="currentColor" d="M21.2 4.1 12.6 21a.7.7 0 0 1-1.3 0L2.8 4.1a.7.7 0 0 1 .8-.9l8.4 1.6 8.4-1.6a.7.7 0 0 1 .8.9ZM14.5 3l-4.2.8L9.6 11l2.4-.5-.7 4.7 4.4-5.9-2.2.4L14.5 3Z"/>`,
+  },
+  {
+    id: 'docker',
+    name: 'Docker',
+    category: 'Container',
+    x: 74,
+    y: 56,
+    scale: 0.9,
+    accent: '#38BDF8',
+    svg: `<path fill="currentColor" d="M13 7h2v2h-2V7Zm-3 0h2v2h-2V7ZM7 7h2v2H7V7Zm3-3h2v2h-2V4Zm-6 6h2v2H4v-2Zm3 0h2v2H7v-2Zm3 0h2v2h-2v-2Zm3 0h2v2h-2v-2Zm3 0h2v2h-2v-2Zm4.8 1.2c-.5-.3-1.6-.4-2.4-.2-.1-.9-.6-1.7-1.4-2.2l-.3-.2-.2.3c-.4.6-.5 1.6-.1 2.3-.3.2-.9.4-1.7.4H2.3c-.3 1.7.2 3.9 1.5 5.4 1.2 1.4 3.1 2.1 5.5 2.1 5.2 0 9-2.4 10.8-6.7.7 0 2.2 0 3-1.5l.1-.3-.4-.2Z"/>`,
+  },
+];

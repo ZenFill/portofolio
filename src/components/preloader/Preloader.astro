@@ -1,0 +1,65 @@
+---
+import { DEV_LOGOS } from '@/data/devLogos';
+---
+
+<div
+  class="preloader"
+  data-preloader
+  aria-label="Loading screen"
+  role="progressbar"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="100"
+>
+  <!-- Top & Bottom Curtain Panels -->
+  <div class="preloader__curtain preloader__curtain--top" data-curtain-top></div>
+  <div class="preloader__curtain preloader__curtain--bottom" data-curtain-bottom></div>
+
+  <!-- Preloader Content Stage -->
+  <div class="preloader__stage" data-preloader-stage>
+    <!-- Background Floating & Gently Blinking Dev Stack Logos -->
+    <div class="preloader__logo-field" data-logo-field aria-hidden="true">
+      {
+        DEV_LOGOS.map((logo, index) => (
+          <div
+            class="dev-logo"
+            data-dev-logo
+            data-index={index}
+            style={`left: ${logo.x}%; top: ${logo.y}%; --logo-scale: ${logo.scale};`}
+            title={logo.name}
+          >
+            <svg
+              class="dev-logo__svg"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              set:html={logo.svg}
+            />
+            <span class="dev-logo__name">{logo.name}</span>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Center Lockup: WELCOME TO ——— [Long Connector Line] ——— MY WEBSITE -->
+    <div class="preloader__center">
+      <div class="preloader__lockup" data-preloader-lockup>
+        <span class="preloader__text" data-word-left>WELCOME TO</span>
+
+        <span class="preloader__connector" data-connector-bridge aria-hidden="true">
+          <span class="preloader__connector-line"></span>
+        </span>
+
+        <span class="preloader__text preloader__text--accent" data-word-right>MY WEBSITE</span>
+      </div>
+    </div>
+
+    <!-- Bottom-Center Loading Percentage Indicator (100% -> 0% -> 100%) -->
+    <footer class="preloader__footer">
+      <div class="preloader__counter" data-preloader-ui>
+        <span class="preloader__counter-number" data-preloader-counter>100</span>
+        <span class="preloader__counter-percent">%</span>
+      </div>
+    </footer>
+  </div>
+</div>
